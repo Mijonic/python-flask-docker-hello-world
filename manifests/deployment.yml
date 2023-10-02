@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: mijonicpythonflaskdockerhelloworld 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mijonicpythonflaskdockerhelloworld
+  template:
+    metadata:
+      labels:
+        app: mijonicpythonflaskdockerhelloworld 
+    spec:
+      containers:
+        - name: mijonicpythonflaskdockerhelloworld 
+          image: containerregistryvegatest.azurecr.io/mijonicpythonflaskdockerhelloworld
+          ports:
+          - containerPort: 80
