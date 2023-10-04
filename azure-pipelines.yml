@@ -81,7 +81,7 @@ stages:
                 $(containerRegistry)/$(imageRepository):$(tag)
               kubernetesServiceConnection: $(kubernetesServiceConnectiondev)
 
-- stage: Deploy
+- stage: Deploy Prod
   displayName: Deploy to Prod
   dependsOn: Build
 
