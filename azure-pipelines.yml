@@ -17,6 +17,8 @@ variables:
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'containerregistryvegatest1424d8df-auth'
+  kubernetesServiceConnectiondev: 'aks-dev'
+  kubernetesServiceConnectionprod: 'aks-prod'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -64,6 +66,7 @@ stages:
               action: createSecret
               secretName: $(imagePullSecret)
               dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+              kubernetesServiceConnection: $(kubernetesServiceConnectiondev)
 
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
@@ -76,4 +79,5 @@ stages:
                 $(imagePullSecret)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
+              kubernetesServiceConnection: $(kubernetesServiceConnectiondev)
 
