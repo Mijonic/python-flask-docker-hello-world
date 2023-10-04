@@ -12,7 +12,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'bcae0911-20cf-4fea-affb-f927b3809970'
-  imageRepository: 'newapptesting'
+  imageRepository: 'mijonicpythonflaskdockerhelloworld'
   containerRegistry: 'containerregistryvegatest.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
